@@ -1,9 +1,16 @@
 class QuestionsController < ApplicationController
 
+  def answer
+    @question = params[:question]
+    @answer = coach_answer(@question)
+  end
+
   def ask
   end
 
-  def answer
+  private
+
+  def coach_answer(question)
     @reply = []
     if params[:question] == 'I am going to work'
       @reply = 'Great!'
